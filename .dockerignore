@@ -1,0 +1,37 @@
+# Root directories
+.git
+.circleci
+.github
+.bundle
+.idea
+.local
+log
+!log/.keep
+tmp
+!tmp/.keep
+storage
+!storage/.keep
+
+# Root files
+Dockerfile
+docker-compose.yml
+.dockerignore
+.gitignore
+.gitattributes
+.tool-versions
+.editorconfig
+lefthook.yml
+*.sql
+*.txt
+*.csv
+*.xml
+*.env
+*.env.*
+*.code-workspace
+*.md
+
+# Files
+**/*.bak
+**/*.backup
+**/*.orig
+**/.DS_Store

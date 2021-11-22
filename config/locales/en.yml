@@ -1,0 +1,60 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+en:
+  activerecord:
+    exceptions:
+      not_found: "We couldn't find a %{klass}"
+    errors:
+      models:
+        report:
+          allowed_file_content_types: ! 'File file should be one of types .pdf, .txt, .ppt, .pptx'
+        user:
+          allowed_file_content_types: ! 'File file should be one of types .png, .gif, .jpg'
+        document:
+          allowed_file_content_types: ! 'File file should be one of types .pdf, .txt, .xls, .xlsx, .doc, docx, .csv, .xml'
+  hello: "Hello world"
+  error_message: 'Something went wrong. Please, try again later'
+  exceptions:
+    not_authenticated: 'Not Authenticated'
+  notification_listeners:
+    contract_approved:
+      title: 'Contract was signed'
+      body: 'The contract was signed for %{full_name}'
+    invoice_approved:
+      title: 'Invoice was paid'
+      body: 'The invoice was paid for by %{full_name}. Valuation start'
+  auth:
+    sessions:
+      error_message: 'Email or password is invalid!'
+    registrations:
+      create:
+        confirmation_message: 'We sent confirmation email. Pls, check your mailbox'

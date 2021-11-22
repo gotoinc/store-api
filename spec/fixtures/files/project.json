@@ -1,0 +1,82 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minimum": 0
+        },
+        "type": {
+          "type": "string"
+        },
+        "attributes": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "uuid": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "active": {
+              "type": "boolean"
+            }
+          }
+        },
+        "relationships": {
+          "type": "object",
+          "properties": {
+            "analyst": {
+              "type": [null, "object"],
+              "anyOf": [
+                {
+                  "type": null
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minimum": 0
+                        },
+                        "type": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "documents": {
+              "type": "object",
+              "properties": {
+                "type": "object",
+                "data": {
+                  "type": "array",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minimum": 0
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

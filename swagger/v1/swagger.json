@@ -1,0 +1,627 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API V1",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/customer/cart": {
+      "get": {
+        "summary": "List of products",
+        "tags": [
+          "#index"
+        ],
+        "security": [
+          {
+            "Bearer": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Customer able to see list of cart items"
+          }
+        }
+      }
+    },
+    "/api/v1/customer/cart/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "product_params",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "uuid": {
+                "type": "string",
+                "default": "uuid"
+              }
+            }
+          }
+        }
+      ],
+      "delete": {
+        "summary": "Customer able to delete a product from cart",
+        "tags": [
+          "#destroy"
+        ],
+        "security": [
+          {
+            "Bearer": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product deleting"
+          }
+        }
+      }
+    },
+    "/api/v1/customer/favorites": {
+      "get": {
+        "summary": "List of available products",
+        "tags": [
+          "#index"
+        ],
+        "security": [
+          {
+            "Bearer": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Customer able to see list of favorite products"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add product to favorite list",
+        "tags": [
+          "#create"
+        ],
+        "security": [
+          {
+            "Bearer": {
+            }
+          }
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "Customer able to add product to his favorites list"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "uuid": {
+                    "type": "string",
+                    "default": "uuid"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/customer/favorites/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "favorite_params",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "uuid": {
+                "type": "string",
+                "default": "uuid"
+              }
+            }
+          }
+        }
+      ],
+      "delete": {
+        "summary": "Customer able to delete a product from favorite list",
+        "tags": [
+          "#destroy"
+        ],
+        "security": [
+          {
+            "Bearer": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product deleting"
+          }
+        }
+      }
+    },
+    "/api/v1/customer/invoices": {
+      "get": {
+        "summary": "List of invoices",
+        "tags": [
+          "#index"
+        ],
+        "security": [
+          {
+            "Bearer": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Customer able to see the list of invoices"
+          }
+        }
+      }
+    },
+    "/api/v1/customer/products": {
+      "get": {
+        "summary": "Show list of products #customer",
+        "tags": [
+          "#index"
+        ],
+        "security": [
+          {
+            "Bearer": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Customer able to see list of products"
+          }
+        }
+      }
+    },
+    "/api/v1/customer/products/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "summary": "Show product #customer",
+        "tags": [
+          "#show"
+        ],
+        "security": [
+          {
+            "Bearer": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Able to see specific product"
+          }
+        }
+      }
+    },
+    "/api/v1/customer/profile": {
+      "get": {
+        "summary": "Fetch user #customer",
+        "tags": [
+          "#show"
+        ],
+        "security": [
+          {
+            "Bearer": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User is able to fetch data"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update user unsuccessfully",
+        "tags": [
+          "#update"
+        ],
+        "security": [
+          {
+            "Bearer": {
+            }
+          }
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "User is able to update password"
+          },
+          "422": {
+            "description": "User is unable to update password"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "first_name": {
+                    "type": "string"
+                  },
+                  "last_name": {
+                    "type": "string"
+                  },
+                  "current_password": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "password_confirmation": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email",
+                  "first_name",
+                  "last_name",
+                  "current_password",
+                  "password",
+                  "password_confirmation"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/provider/categories": {
+      "get": {
+        "summary": "List of available categories",
+        "tags": [
+          "#index"
+        ],
+        "security": [
+          {
+            "Bearer": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider able to see list of categories"
+          }
+        }
+      }
+    },
+    "/api/v1/provider/products": {
+      "get": {
+        "summary": "List of available products",
+        "tags": [
+          "#index"
+        ],
+        "security": [
+          {
+            "Bearer": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider able to see list of his products"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new product",
+        "tags": [
+          "#create"
+        ],
+        "security": [
+          {
+            "Bearer": {
+            }
+          }
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "Provider able to create a new product"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "default": "name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "default": "description"
+                  },
+                  "price": {
+                    "type": "number",
+                    "format": "float",
+                    "default": 0.0
+                  },
+                  "counter": {
+                    "type": "number",
+                    "default": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/provider/products/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "summary": "Show product #provider",
+        "tags": [
+          "#show"
+        ],
+        "security": [
+          {
+            "Bearer": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Able to see specific product"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Provider able to delete a project",
+        "tags": [
+          "#destroy"
+        ],
+        "security": [
+          {
+            "Bearer": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product deleting"
+          }
+        }
+      }
+    },
+    "/api/v1/provider/profile": {
+      "get": {
+        "summary": "Fetch user #provider",
+        "tags": [
+          "#show"
+        ],
+        "security": [
+          {
+            "Bearer": {
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User is able to fetch data"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update user unsuccessfully",
+        "tags": [
+          "#update"
+        ],
+        "security": [
+          {
+            "Bearer": {
+            }
+          }
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "User is able to update password"
+          },
+          "422": {
+            "description": "User is unable to update password"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "first_name": {
+                    "type": "string"
+                  },
+                  "last_name": {
+                    "type": "string"
+                  },
+                  "current_password": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "password_confirmation": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email",
+                  "first_name",
+                  "last_name",
+                  "current_password",
+                  "password",
+                  "password_confirmation"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/registrations": {
+      "post": {
+        "summary": "Sign-up customer",
+        "tags": [
+          "#auth"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "Unauthenticated user is able to sign up"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "first_name": {
+                    "type": "string"
+                  },
+                  "last_name": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "password_confirmation": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email",
+                  "first_name",
+                  "last_name",
+                  "password",
+                  "password_confirmation"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/sessions": {
+      "post": {
+        "summary": "Sign-in customer",
+        "tags": [
+          "#auth"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "Unauthenticated user is able to login"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email",
+                  "password"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "Bearer": {
+        "description": "JSON web token",
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    },
+    {
+      "url": "https://eton-analytics-rails.herokuapp.com"
+    }
+  ]
+}

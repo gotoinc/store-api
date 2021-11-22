@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minimum": 0
+        },
+        "type": {
+          "type": "string"
+        },
+        "attributes": {
+          "type": "object",
+          "properties": {
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "confirmed": {
+              "type": "boolean"
+            },
+            "role": {
+              "type": "string"
+            },
+            "photo": {
+              "type": "object"
+            }
+          }
+        },
+        "relationships": {
+          "type": "object",
+          "properties": {
+            "category": {
+              "type": "object"
+            },
+            "cart": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  }
+}

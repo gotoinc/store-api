@@ -1,0 +1,43 @@
+version: '3'
+services:
+  db:
+    image: postgres:13-alpine
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - '5432'
+    environment:
+      POSTGRES_DB: eton_api_development
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+  web:
+    tty: true
+    stdin_open: true
+    build:
+      context: .
+      args:
+        BUILD_ENV: development
+    image: eton_api
+    tmpfs:
+      - /tmp
+      - /usr/src/app/tmp
+    volumes:
+      - '.:/usr/src/app'
+    ports:
+      - '4000:3000'
+    env_file:
+      - .env.docker
+    restart: always
+    environment:
+      LAUNCHY_DRY_RUN: 'true'
+      BROWSER: /dev/null
+      APP_SERVER: 'true'
+      DB_MIGRATE: 'true'
+      RAILS_ENV: development
+      DATABASE_HOST: db
+      DATABASE_URL: postgresql://postgres:password@db/eton_api_development
+    depends_on:
+      - db
+volumes:
+  db_data:
+  web:
