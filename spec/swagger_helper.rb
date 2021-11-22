@@ -34,7 +34,7 @@ RSpec.configure do |config|
       },
       servers: [
         { url: 'http://localhost:3000' },
-        { url: 'https://simple-store-api.herokuapp.com' }
+        { url: 'https://simple-store-ap-v1.herokuapp.com' }
       ]
     }
   }
